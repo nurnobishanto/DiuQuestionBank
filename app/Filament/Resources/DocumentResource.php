@@ -47,6 +47,10 @@ class DocumentResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('type')->sortable()->searchable(),
+                TextColumn::make('semester.name')->sortable()->searchable(),
+                TextColumn::make('department.name')->sortable()->searchable(),
+                TextColumn::make('year.name')->sortable()->searchable(),
             ])
             ->filters([
                 //
