@@ -60,7 +60,9 @@ class DocumentResource extends Resource
                     'slide' => 'Slide',
                     'library' => 'e-Library',
                 ]),
-                Tables\Filters\SelectFilter::make('semester')->relationship('semester','name')
+                Tables\Filters\SelectFilter::make('semester')->relationship('semester','name'),
+                Tables\Filters\SelectFilter::make('department')->relationship('department','name'),
+                Tables\Filters\SelectFilter::make('year')->relationship('year','name'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
