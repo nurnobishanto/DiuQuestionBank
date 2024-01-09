@@ -53,7 +53,14 @@ class DocumentResource extends Resource
                 TextColumn::make('year.name')->sortable()->searchable(),
             ])
             ->filters([
-                //
+                Tables\Filters\SelectFilter::make('type')->options([
+                    'question' => 'Question',
+                    'solution' => 'Solution',
+                    'hand_note' => 'Hand Note',
+                    'slide' => 'Slide',
+                    'library' => 'e-Library',
+                ]),
+                Tables\Filters\SelectFilter::make('semester')->relationship('semester','name')
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
