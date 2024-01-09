@@ -13,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Hash;
 
 class AdminResource extends Resource
 {
@@ -37,7 +38,7 @@ class AdminResource extends Resource
                     ->maxLength(255)
                     ->dehydrateStateUsing(static function ($state) use ($form) {
                         return !empty($state) ? Hash::make($state) : null;
-                        $user = User::find($form->getColumns());
+                        $user = Admin::find($form->getColumns());
                         return $user ? $user->password : null;
                     })->visibleOn('edit'),
                 TextInput::make('password')
@@ -46,7 +47,7 @@ class AdminResource extends Resource
                     ->maxLength(255)
                     ->dehydrateStateUsing(static function ($state) use ($form) {
                         return !empty($state) ? Hash::make($state) : null;
-                        $user = User::find($form->getColumns());
+                        $user = Admin::find($form->getColumns());
                         return $user ? $user->password : null;
                     })->visibleOn('create')->required(),
             ]);
