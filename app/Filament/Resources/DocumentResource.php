@@ -35,7 +35,7 @@ class DocumentResource extends Resource
                     'slide' => 'Slide',
                     'library' => 'e-Library',
                 ])->required(),
-                Forms\Components\FileUpload::make('file')->required(),
+                Forms\Components\FileUpload::make('file')->required()->maxSize('10240'),
                 Forms\Components\Select::make('semester_id')->relationship('semester','name')->required(),
                 Forms\Components\Select::make('department_id')->relationship('department','name')->required(),
                 Forms\Components\Select::make('year_id')->relationship('year','name')->required(),
